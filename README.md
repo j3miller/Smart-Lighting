@@ -1,2 +1,2 @@
 # Smart-Lighting
-Smart Lighting IOT Project
+Smart Lighting Flask Backend and IOT Project
