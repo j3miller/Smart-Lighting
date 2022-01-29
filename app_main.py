@@ -7,8 +7,9 @@ app = Flask(__name__)
 
 # db config
 app.config['MONGODB_SETTINGS'] = {
-
-
+    'db': 'api_test_database',
+    'host': 'localhost',
+    'port': 27017
 }
 db = MongoEngine()
 db.init_app(app)
@@ -48,8 +49,8 @@ def get_device():
 def create_device():
     req = json.loads(request.data)
     device = Device(
-        device_name = req['device_name'],
-        ip_address = req['ip_address']
+        device_name=req['device_name'],
+        ip_address=req['ip_address']
     )
     device.save()
     return jsonify(device.to_json())
