@@ -1,8 +1,18 @@
+"""
+--------------------------
+generic_device.py
+--------------------------
+Author: Joshua Miller
+Creation Date: January 29th, 2022
+
+Description: Class definition for basic device object
+"""
+
+# Imports
 from app.db.db import db
-from app.run import app
+
 
 # Classes
-# TODO: the classes should be moved to their own file
 class Device(db.Document):
     device_name = db.StringField()
     ip_address = db.StringField()

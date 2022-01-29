@@ -1,3 +1,15 @@
+"""
+--------------------------
+api_test.py
+--------------------------
+Author: Joshua Miller
+Creation Date: January 29th, 2022
+
+Description: Script to automate testing of
+generic device endpoints, and verify functionality of
+backend and database implementation
+"""
+
 # Imports
 import requests
 import json

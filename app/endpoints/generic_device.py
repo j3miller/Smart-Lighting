@@ -1,8 +1,25 @@
+"""
+--------------------------
+generic_device.py
+--------------------------
+Author: Joshua Miller
+Creation Date: January 29th, 2022
+
+Description: Endpoint/route definitions for generic
+device API. routes are as follows:
+    - get device (/device (GET method))
+    - create device (/device (PUT method))
+    - update device (/device (POST method))
+    - delete device (/device (DELETE method))
+
+These endpoints are generic and non-functional, intended as a
+blueprint for a more comprehensive implementation
+"""
+
 # Imports
 import json
 from flask import request, jsonify
 from app.run import app
-from app.db.db import db
 from app.classes.generic_device import Device
 
 

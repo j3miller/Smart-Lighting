@@ -1,3 +1,15 @@
+"""
+--------------------------
+app_main.py (***OUTDATED***)
+--------------------------
+Author: Joshua Miller
+Creation Date: January 27th, 2022
+
+Description: First pass at flask app with mongodb database.
+This file is ***OUTDATED*** and has been replaced with a
+more modular implementation in the 'app/' directory
+"""
+
 # Imports
 import json
 from flask import Flask, request, jsonify
@@ -16,7 +28,6 @@ db.init_app(app)
 
 
 # Classes
-# TODO: the classes should be moved to their own file
 class Device(db.Document):
     device_name = db.StringField()
     ip_address = db.StringField()
@@ -78,30 +89,3 @@ def delete_device():
     else:
         device.delete()
     return jsonify(device.to_json())
-
-#@app.route('/device/<name>')    # TODO Double check this syntax
-#def get_device_status():
-
-# Command Endpoints
-#@app.route('/cmd')  # Should only use post for this one
-#def send_command():
-
-# Data Endpoints
-
-
-# Classes
-#class Command(db.Document):
-#    id = db.StringField()
-#    target = db.StringField()
-#    time =
-#    type =  # is it a power or a configuration command (enumerate command types)
-#   payload =
-
-#class Device(db.Document):
-#    id =
-#    ip_address =
-#    type =
-#    status =
-
-#class DeviceStatus(db.Document):
-#    device_id =
