@@ -1,48 +1,26 @@
 """
 --------------------------
-app_main.py (***OUTDATED***)
+generic_device.py
 --------------------------
 Author: Joshua Miller
-Creation Date: January 27th, 2022
+Creation Date: January 29th, 2022
 
-Description: First pass at flask app with mongodb database.
-This file is ***OUTDATED*** and has been replaced with a
-more modular implementation in the 'app/' directory
+Description: Endpoint/route definitions for generic
+device API. routes are as follows:
+    - get device (/device (GET method))
+    - create device (/device (PUT method))
+    - update device (/device (POST method))
+    - delete device (/device (DELETE method))
+
+These endpoints are generic and non-functional, intended as a
+blueprint for a more comprehensive implementation
 """
 
 # Imports
 import json
-from flask import Flask, request, jsonify
-from flask_mongoengine import MongoEngine
-
-app = Flask(__name__)
-
-# db config
-app.config['MONGODB_SETTINGS'] = {
-    'db': 'api_test_database',
-    'host': 'localhost',
-    'port': 27017
-}
-db = MongoEngine()
-db.init_app(app)
-
-
-# Classes
-class Device(db.Document):
-    device_name = db.StringField()
-    ip_address = db.StringField()
-
-    def to_json(self):
-        return {
-            "device_name": self.device_name,
-            "ip_address": self.ip_address
-        }
-
-
-# Generic Endpoints
-@app.route('/')
-def home():
-    return '<p> hello world </p>'
+from flask import request, jsonify
+from app.run import app
+from app.classes.generic_device import Device
 
 
 # Device Endpoints
