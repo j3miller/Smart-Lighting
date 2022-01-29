@@ -37,7 +37,7 @@ def home():
 # Device Endpoints
 @app.route('/device', methods=['GET'])
 def get_device():
-    device_name = request.args.get('name')
+    device_name = request.args.get('device_name')
     device = Device.objects(device_name=device_name).first()
     if not device:
         return jsonify({'error': 'device not found'})
@@ -59,18 +59,20 @@ def create_device():
 @app.route('/device', methods=['POST'])
 def update_device():
     req = json.loads(request.data)
-    device = Device.objects(name=req['name']).first()
+    device = Device.objects(device_name=req['device_name']).first()
     if not device:
         return jsonify({'error': 'device not found'})
     else:
         device.update(ip_address=req['ip_address'])
+    # Need to update device object
+    device = Device.objects(device_name=req['device_name']).first()
     return jsonify(device.to_json())
 
 
 @app.route('/device', methods=['DELETE'])
 def delete_device():
     req = json.loads(request.data)
-    device = Device.objects(device_name=req['device_name']).first
+    device = Device.objects(device_name=req['device_name']).first()
     if not device:
         return jsonify({'error': 'device not found'})
     else:
