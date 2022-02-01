@@ -15,12 +15,13 @@ import json
 import os
 
 # Requests variables
+api_key = os.environ.get("SMART_API_KEY")
 localhost_url = 'http://localhost:5000/'
 url = localhost_url
 headers = {
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'api_key': api_key
 }
-api_key = os.environ.get("SMART_API_KEY")
 
 
 # Helper function for printing json response
@@ -64,8 +65,8 @@ def get_device_auth_test():
 
     # Test get device endpoint with good auth
     print("Testing get device - GOOD AUTH")
-    payload = {'api_key': api_key, 'device_name': device_name}
-    response = requests.get(url=device_url, params=payload)
+    payload = {'device_name': device_name}
+    response = requests.get(url=device_url, headers=headers, params=payload)
     print("Got response from get device endpoint: ", response)
     jprint(response.json())
 
@@ -144,8 +145,8 @@ def update_device_auth_test():
     print("Got response from update device endpoint: ", response)
     jprint(response.json())
     # Verify that data was not changed
-    payload = {'api_key': api_key, 'device_name': device_name}
-    response = requests.get(url=device_url, params=payload)
+    payload = {'device_name': device_name}
+    response = requests.get(url=device_url, headers=headers, params=payload)
     print("Got response from get device endpoint: ", response)
     jprint(response.json())
 
@@ -156,8 +157,8 @@ def update_device_auth_test():
     print("Got response from update device endpoint: ", response)
     jprint(response.json())
     # Verify that data was not changed
-    payload = {'api_key': api_key, 'device_name': device_name}
-    response = requests.get(url=device_url, params=payload)
+    payload = {'device_name': device_name}
+    response = requests.get(url=device_url, headers=headers, params=payload)
     print("Got response from get device endpoint: ", response)
     jprint(response.json())
 
@@ -168,8 +169,8 @@ def update_device_auth_test():
     print("Got response from update device endpoint: ", response)
     jprint(response.json())
     # Verify that data was not changed
-    payload = {'api_key': api_key, 'device_name': device_name}
-    response = requests.get(url=device_url, params=payload)
+    payload = {'device_name': device_name}
+    response = requests.get(url=device_url, headers=headers, params=payload)
     print("Got response from get device endpoint: ", response)
     jprint(response.json())
 
@@ -206,8 +207,8 @@ def delete_device_auth_test():
     print("Got response from delete device endpoint: ", response)
     jprint(response.json())
     # Verify that data was not changed
-    payload = {'api_key': api_key, 'device_name': device_name}
-    response = requests.get(url=device_url, params=payload)
+    payload = {'device_name': device_name}
+    response = requests.get(url=device_url, headers=headers, params=payload)
     print("Got response from get device endpoint: ", response)
     jprint(response.json())
 
@@ -218,8 +219,8 @@ def delete_device_auth_test():
     print("Got response from delete device endpoint: ", response)
     jprint(response.json())
     # Verify that data was not changed
-    payload = {'api_key': api_key, 'device_name': device_name}
-    response = requests.get(url=device_url, params=payload)
+    payload = {'device_name': device_name}
+    response = requests.get(url=device_url, headers=headers, params=payload)
     print("Got response from get device endpoint: ", response)
     jprint(response.json())
 
@@ -230,8 +231,8 @@ def delete_device_auth_test():
     print("Got response from delete device endpoint: ", response)
     jprint(response.json())
     # Verify that data was not changed
-    payload = {'api_key': api_key, 'device_name': device_name}
-    response = requests.get(url=device_url, params=payload)
+    payload = {'device_name': device_name}
+    response = requests.get(url=device_url, headers=headers, params=payload)
     print("Got response from get device endpoint: ", response)
     jprint(response.json())
 

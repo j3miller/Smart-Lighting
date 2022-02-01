@@ -28,7 +28,7 @@ from app.auth.auth import check
 @app.route('/device', methods=['GET'])
 def get_device():
     # Check API authentication
-    api_key = request.args.get('api_key')
+    api_key = request.headers.get('api_key')
     if not check.auth_check(api_key) or api_key is None:
         return jsonify({'error': 'bad api key'})
 
