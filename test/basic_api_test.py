@@ -1,6 +1,6 @@
 """
 --------------------------
-api_test.py
+basic_api_test.py
 --------------------------
 Author: Joshua Miller
 Creation Date: January 29th, 2022

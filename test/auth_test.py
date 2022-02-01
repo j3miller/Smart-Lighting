@@ -1,3 +1,13 @@
+"""
+--------------------------
+auth_test.py
+--------------------------
+Author: Joshua Miller
+Creation Date: January 30th, 2022
+
+Description: script to test retrieving and verifying api key
+"""
+
 # Imports
 import os
 from app.auth.auth import check
