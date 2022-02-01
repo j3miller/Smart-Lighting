@@ -18,6 +18,7 @@ app = Flask(__name__)
 # Import endpoints after app object is created
 from endpoints.generic import *
 from endpoints.generic_device import *
+from endpoints.template_test import *
 
 if __name__ == '__main__':
     app.run(debug=True)
