@@ -18,3 +18,8 @@ from app.run import app
 @app.route('/test_template')
 def test_template():
     return render_template('test.html')
+
+
+@app.route('/test_base_template')
+def test_base_template():
+    return render_template('test_base.html')
